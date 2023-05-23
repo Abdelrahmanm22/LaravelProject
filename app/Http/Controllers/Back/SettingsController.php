@@ -10,6 +10,11 @@ use App\Traits\image;
 class SettingsController extends Controller
 {
     use image;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $user = Auth::user();
         $settings=Setting::first();
